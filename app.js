@@ -223,6 +223,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load progress
     loadProgress();
 
+    // Schedule
+    initSchedule();
+
     // Nav toggle (mobile)
     const toggle = document.getElementById('nav-toggle');
     if (toggle) {
@@ -612,4 +615,39 @@ function initMuscleMap() {
             `;
         });
     });
+}
+
+// ===== WEEKLY SCHEDULE =====
+function initSchedule() {
+    const today = new Date().getDay(); // 0=Sun, 1=Mon, ...
+    const days = document.querySelectorAll('.schedule-day');
+
+    const SCHEDULE = {
+        0: { name: 'DESCANSO TOTAL', protocol: 'Recuperação — Sono & Nutrição', rest: true },
+        1: { name: 'PEITO & TRÍCEPS', protocol: 'Protocolo Baki — Drop Sets', rest: false },
+        2: { name: 'COSTAS & BÍCEPS', protocol: 'Fúria do Ogro — Rest-Pause', rest: false },
+        3: { name: 'DESCANSO ATIVO', protocol: 'Alongamento & Cardio leve', rest: true },
+        4: { name: 'OMBROS & TRAPÉZIO', protocol: 'Grip de Hanayama — Myo-Reps', rest: false },
+        5: { name: 'PERNAS COMPLETO', protocol: 'Tanque Oliva — Tempo Training', rest: false },
+        6: { name: 'PUSH-PULL', protocol: 'Fluxo de Retsu — Supersets', rest: false }
+    };
+
+    // Highlight today's card
+    days.forEach(day => {
+        const dayNum = parseInt(day.dataset.day);
+        if (dayNum === today) {
+            day.classList.add('today-highlight');
+        }
+    });
+
+    // Update today banner
+    const todayText = document.getElementById('today-text');
+    if (todayText && SCHEDULE[today]) {
+        const info = SCHEDULE[today];
+        if (info.rest) {
+            todayText.textContent = `${info.name} — ${info.protocol}`;
+        } else {
+            todayText.textContent = `${info.name} → ${info.protocol}`;
+        }
+    }
 }

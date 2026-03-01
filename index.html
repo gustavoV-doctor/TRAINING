@@ -7,6 +7,12 @@
     <meta name="description"
         content="DEMON TRAINING — Site de treino interativo inspirado em Baki Hanma. Treinos brutais para guerreiros de verdade.">
     <title>DEMON TRAINING | Baki Hanma Workout</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#c41e3a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DemonTrain">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -25,6 +31,7 @@
         <ul class="nav-links">
             <li><a href="#hero" class="nav-link active">INÍCIO</a></li>
             <li><a href="#workouts" class="nav-link">TREINOS</a></li>
+            <li><a href="#schedule" class="nav-link">SEMANA</a></li>
             <li><a href="#timer" class="nav-link">TIMER</a></li>
             <li><a href="#progress" class="nav-link">PROGRESSO</a></li>
             <li><a href="#muscle-map" class="nav-link">MÚSCULOS</a></li>
@@ -262,6 +269,72 @@
         </div>
     </section>
 
+    <!-- WEEKLY SCHEDULE -->
+    <section id="schedule">
+        <div class="section-header">
+            <span class="section-tag">// DIVISÃO SEMANAL</span>
+            <h2 class="section-title">SUA <span class="accent">SEMANA</span></h2>
+            <p class="section-desc">Siga a divisão para resultados máximos. Cada dia tem seu protocolo.</p>
+        </div>
+
+        <div class="schedule-grid">
+            <div class="schedule-day active-day" data-day="1">
+                <span class="day-label">SEG</span>
+                <span class="day-icon">🏋️</span>
+                <span class="day-workout">PEITO & TRÍCEPS</span>
+                <span class="day-protocol">Protocolo Baki</span>
+                <span class="day-technique">Drop Sets</span>
+            </div>
+            <div class="schedule-day" data-day="2">
+                <span class="day-label">TER</span>
+                <span class="day-icon">💪</span>
+                <span class="day-workout">COSTAS & BÍCEPS</span>
+                <span class="day-protocol">Fúria do Ogro</span>
+                <span class="day-technique">Rest-Pause</span>
+            </div>
+            <div class="schedule-day rest-day" data-day="3">
+                <span class="day-label">QUA</span>
+                <span class="day-icon">😤</span>
+                <span class="day-workout">DESCANSO ATIVO</span>
+                <span class="day-protocol">Recuperação</span>
+                <span class="day-technique">Alongamento & Cardio leve</span>
+            </div>
+            <div class="schedule-day" data-day="4">
+                <span class="day-label">QUI</span>
+                <span class="day-icon">🔥</span>
+                <span class="day-workout">OMBROS & TRAPÉZIO</span>
+                <span class="day-protocol">Grip de Hanayama</span>
+                <span class="day-technique">Myo-Reps</span>
+            </div>
+            <div class="schedule-day" data-day="5">
+                <span class="day-label">SEX</span>
+                <span class="day-icon">🦵</span>
+                <span class="day-workout">PERNAS COMPLETO</span>
+                <span class="day-protocol">Tanque Oliva</span>
+                <span class="day-technique">Tempo Training</span>
+            </div>
+            <div class="schedule-day" data-day="6">
+                <span class="day-label">SÁB</span>
+                <span class="day-icon">🔄</span>
+                <span class="day-workout">PUSH-PULL</span>
+                <span class="day-protocol">Fluxo de Retsu</span>
+                <span class="day-technique">Supersets</span>
+            </div>
+            <div class="schedule-day rest-day" data-day="0">
+                <span class="day-label">DOM</span>
+                <span class="day-icon">⚔️</span>
+                <span class="day-workout">DESCANSO TOTAL</span>
+                <span class="day-protocol">Recuperação</span>
+                <span class="day-technique">Sono & Nutrição</span>
+            </div>
+        </div>
+
+        <div class="schedule-today" id="schedule-today">
+            <span class="today-badge">HOJE</span>
+            <span class="today-text" id="today-text">Carregando...</span>
+        </div>
+    </section>
+
     <!-- TIMER -->
     <section id="timer">
         <div class="section-header">
@@ -478,6 +551,16 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('SW registered:', reg.scope))
+                    .catch(err => console.log('SW failed:', err));
+            });
+        }
+    </script>
 </body>
 
 </html>
