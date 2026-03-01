@@ -1458,7 +1458,7 @@ section {
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
     :root {
-        --section-padding: 80px 5%;
+        --section-padding: 60px 4%;
     }
 
     .nav-links {
@@ -1469,12 +1469,19 @@ section {
         width: 100%;
         flex-direction: column;
         padding: 20px 5%;
-        background: rgba(10, 10, 10, 0.95);
+        background: rgba(10, 10, 10, 0.98);
         border-bottom: 1px solid rgba(196, 30, 58, 0.2);
+        gap: 4px;
     }
 
     .nav-links.show {
         display: flex;
+    }
+
+    .nav-link {
+        padding: 12px 16px;
+        text-align: center;
+        font-size: 0.9rem;
     }
 
     .nav-toggle {
@@ -1491,20 +1498,177 @@ section {
 
     .hero-desc {
         margin: 0 auto 40px;
+        font-size: 1rem;
     }
 
     .title-line {
-        font-size: clamp(3rem, 15vw, 5rem);
+        font-size: clamp(2.8rem, 13vw, 4.5rem);
     }
 
+    .hero-subtitle {
+        font-size: 0.95rem;
+        letter-spacing: 5px;
+    }
+
+    /* Workout filters */
+    .workout-filters {
+        gap: 6px;
+        padding: 0 2%;
+    }
+
+    .filter-btn {
+        font-size: 0.7rem;
+        padding: 8px 14px;
+        letter-spacing: 1px;
+        flex: 1 1 auto;
+        text-align: center;
+        min-width: 0;
+    }
+
+    /* Workout cards */
     .workout-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0;
     }
 
+    .workout-card {
+        padding: 20px;
+    }
+
+    .card-img-container {
+        height: 150px;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .card-stats {
+        gap: 12px;
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+    }
+
+    .stat-value {
+        font-size: 1.3rem;
+    }
+
+    .stat-label {
+        font-size: 0.6rem;
+    }
+
+    .card-exercises li {
+        font-size: 0.82rem;
+        padding: 6px 0;
+    }
+
+    .ex-name {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-right: 8px;
+    }
+
+    .ex-reps {
+        font-size: 0.75rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Weekly schedule */
+    .schedule-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .schedule-day {
+        padding: 14px 10px;
+        gap: 6px;
+    }
+
+    .day-label {
+        font-size: 0.75rem;
+    }
+
+    .day-icon {
+        font-size: 1.4rem;
+    }
+
+    .day-workout {
+        font-size: 0.7rem;
+    }
+
+    .day-protocol {
+        font-size: 0.65rem;
+    }
+
+    .day-technique {
+        font-size: 0.55rem;
+        padding: 2px 6px;
+    }
+
+    .schedule-today {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 14px 16px;
+    }
+
+    .today-text {
+        font-size: 0.9rem;
+    }
+
+    /* Timer */
+    .timer-container {
+        padding: 0;
+    }
+
+    .timer-ring {
+        transform: scale(0.8);
+        margin: -20px auto;
+    }
+
+    .timer-presets {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 0 10px;
+    }
+
+    .preset-btn {
+        font-size: 0.75rem;
+        padding: 10px 8px;
+    }
+
+    .timer-controls {
+        gap: 16px;
+    }
+
+    /* Progress */
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 
+    .stat-card {
+        padding: 16px 10px;
+    }
+
+    .stat-card-value {
+        font-size: 1.4rem;
+    }
+
+    .stat-card-label {
+        font-size: 0.7rem;
+    }
+
+    /* Muscle map */
     .muscle-container {
         grid-template-columns: 1fr;
     }
@@ -1514,22 +1678,62 @@ section {
         text-align: center;
     }
 
-    .schedule-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* Section headers */
+    .section-title {
+        font-size: clamp(1.6rem, 7vw, 2.5rem);
+    }
+
+    .section-desc {
+        font-size: 0.9rem;
+    }
+
+    .section-tag {
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    /* Footer */
+    .footer-content {
+        padding: 0;
+    }
+
+    /* Modal */
+    .modal-content {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    /* History */
+    .history-item {
+        font-size: 0.85rem;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
     .timer-display {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
     }
 
     .title-line {
-        font-size: clamp(2.5rem, 18vw, 4rem);
+        font-size: clamp(2.2rem, 16vw, 3.5rem);
     }
 
     .schedule-grid {
         grid-template-columns: 1fr;
+    }
+
+    .filter-btn {
+        font-size: 0.65rem;
+        padding: 7px 10px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
     }
 }
 
