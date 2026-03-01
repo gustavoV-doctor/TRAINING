@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="DEMON TRAINING — Site de treino interativo inspirado em Baki Hanma. Treinos brutais para guerreiros de verdade.">
+    <title>DEMON TRAINING | Baki Hanma Workout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Barlow+Condensed:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav id="main-nav">
+        <div class="nav-brand">
+            <span class="brand-icon">👹</span>
+            <span class="brand-text">DEMON<span class="accent">TRAINING</span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero" class="nav-link active">INÍCIO</a></li>
+            <li><a href="#workouts" class="nav-link">TREINOS</a></li>
+            <li><a href="#timer" class="nav-link">TIMER</a></li>
+            <li><a href="#progress" class="nav-link">PROGRESSO</a></li>
+            <li><a href="#muscle-map" class="nav-link">MÚSCULOS</a></li>
+        </ul>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <canvas id="particles-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle glitch-text" data-text="鬼の訓練">鬼の訓練</p>
+            <h1 class="hero-title">
+                <span class="title-line">DEMON</span>
+                <span class="title-line accent-glow">TRAINING</span>
+            </h1>
+            <p class="hero-desc">Treine como os guerreiros mais fortes do mundo. Sem desculpas. Sem limites. Apenas
+                resultados.</p>
+            <a href="#workouts" class="btn btn-primary pulse-btn">
+                <span>COMEÇAR TREINO</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+        <div class="hero-warrior">
+            <img src="assets/char-hero.png" alt="Baki Hanma" class="warrior-img">
+        </div>
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- WORKOUTS -->
+    <section id="workouts">
+        <div class="section-header">
+            <span class="section-tag">// PROTOCOLOS DE TREINO</span>
+            <h2 class="section-title">ESCOLHA SEU <span class="accent">DESTINO</span></h2>
+            <p class="section-desc">Cada treino é inspirado nos guerreiros mais brutais. Escolha sabiamente.</p>
+        </div>
+
+        <div class="workout-filters">
+            <button class="filter-btn active" data-filter="all">TODOS</button>
+            <button class="filter-btn" data-filter="upper">SUPERIOR</button>
+            <button class="filter-btn" data-filter="lower">INFERIOR</button>
+            <button class="filter-btn" data-filter="full">FULL BODY</button>
+        </div>
+
+        <div class="workout-grid">
+            <!-- Card 1 – Baki: PEITO & TRÍCEPS (Push Day) -->
+            <div class="workout-card" data-category="upper" data-difficulty="5" id="workout-baki">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-rank">S</span>
+                    <span class="card-tag">SUPERIOR</span>
+                </div>
+                <div class="card-img-container"><img src="assets/char-baki.png" alt="Baki" class="card-character-img">
+                </div>
+                <h3 class="card-title">PROTOCOLO BAKI</h3>
+                <p class="card-subtitle">Peito & Tríceps — Drop Sets</p>
+                <div class="card-stats">
+                    <div class="stat"><span class="stat-value">50</span><span class="stat-label">MIN</span></div>
+                    <div class="stat"><span class="stat-value">7</span><span class="stat-label">EXERC.</span></div>
+                    <div class="stat"><span class="stat-value">600</span><span class="stat-label">XP</span></div>
+                </div>
+                <ul class="card-exercises">
+                    <li><span class="ex-name">Supino Reto Smith</span><span class="ex-reps">4x10 ⬇DropSet</span></li>
+                    <li><span class="ex-name">Supino Inclinado Smith</span><span class="ex-reps">4x10 (3s neg.)</span>
+                    </li>
+                    <li><span class="ex-name">Crucifixo Polia Fixa</span><span class="ex-reps">3x12 ⬇DropSet</span></li>
+                    <li><span class="ex-name">Crossover Cabo Baixo</span><span class="ex-reps">3x15</span></li>
+                    <li><span class="ex-name">Tríceps Polia (Corda)</span><span class="ex-reps">4x12 ⬇DropSet</span>
+                    </li>
+                    <li><span class="ex-name">Tríceps Francês Halter</span><span class="ex-reps">3x12</span></li>
+                    <li><span class="ex-name">Flexão Fechada (Falha)</span><span class="ex-reps">2x Falha</span></li>
+                </ul>
+                <button class="btn btn-card" onclick="startWorkout('baki', 600)">INICIAR PROTOCOLO</button>
+            </div>
+
+            <!-- Card 2 – Yujiro: COSTAS & BÍCEPS (Pull Day) -->
+            <div class="workout-card" data-category="upper" data-difficulty="5" id="workout-yujiro">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-rank rank-ss">SS</span>
+                    <span class="card-tag">SUPERIOR</span>
+                </div>
+                <div class="card-img-container"><img src="assets/char-yujiro.png" alt="Yujiro"
+                        class="card-character-img"></div>
+                <h3 class="card-title">FÚRIA DO OGRO</h3>
+                <p class="card-subtitle">Costas & Bíceps — Rest-Pause</p>
+                <div class="card-stats">
+                    <div class="stat"><span class="stat-value">55</span><span class="stat-label">MIN</span></div>
+                    <div class="stat"><span class="stat-value">7</span><span class="stat-label">EXERC.</span></div>
+                    <div class="stat"><span class="stat-value">700</span><span class="stat-label">XP</span></div>
+                </div>
+                <ul class="card-exercises">
+                    <li><span class="ex-name">Puxada Frontal Polia</span><span class="ex-reps">4x10 ⏸Rest-Pause</span>
+                    </li>
+                    <li><span class="ex-name">Remada Curvada Smith</span><span class="ex-reps">4x10 (3s neg.)</span>
+                    </li>
+                    <li><span class="ex-name">Remada Baixa Polia</span><span class="ex-reps">3x12 ⏸Rest-Pause</span>
+                    </li>
+                    <li><span class="ex-name">Pull-Over Cabo Polia</span><span class="ex-reps">3x15</span></li>
+                    <li><span class="ex-name">Rosca Direta Polia</span><span class="ex-reps">4x12 ⬇DropSet</span></li>
+                    <li><span class="ex-name">Rosca Martelo Halter</span><span class="ex-reps">3x12</span></li>
+                    <li><span class="ex-name">Rosca Polia 21s</span><span class="ex-reps">2x21 (7-7-7)</span></li>
+                </ul>
+                <button class="btn btn-card" onclick="startWorkout('yujiro', 700)">INICIAR PROTOCOLO</button>
+            </div>
+
+            <!-- Card 3 – Hanayama: OMBROS & TRAPÉZIO -->
+            <div class="workout-card" data-category="upper" data-difficulty="4" id="workout-hanayama">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-rank">A</span>
+                    <span class="card-tag">SUPERIOR</span>
+                </div>
+                <div class="card-img-container"><img src="assets/char-hanayama.png" alt="Hanayama"
+                        class="card-character-img"></div>
+                <h3 class="card-title">GRIP DE HANAYAMA</h3>
+                <p class="card-subtitle">Ombros & Trapézio — Myo-Reps</p>
+                <div class="card-stats">
+                    <div class="stat"><span class="stat-value">45</span><span class="stat-label">MIN</span></div>
+                    <div class="stat"><span class="stat-value">7</span><span class="stat-label">EXERC.</span></div>
+                    <div class="stat"><span class="stat-value">500</span><span class="stat-label">XP</span></div>
+                </div>
+                <ul class="card-exercises">
+                    <li><span class="ex-name">Desenv. Militar Smith</span><span class="ex-reps">4x10 (3s neg.)</span>
+                    </li>
+                    <li><span class="ex-name">Elevação Lateral Cabo</span><span class="ex-reps">4x15 💪MyoReps</span>
+                    </li>
+                    <li><span class="ex-name">Elevação Frontal Halter</span><span class="ex-reps">3x12</span></li>
+                    <li><span class="ex-name">Face Pull Polia Alta</span><span class="ex-reps">4x15</span></li>
+                    <li><span class="ex-name">Encolhimento Smith</span><span class="ex-reps">4x12 ⬇DropSet</span></li>
+                    <li><span class="ex-name">Crucifixo Inverso Cabo</span><span class="ex-reps">3x15</span></li>
+                    <li><span class="ex-name">Elev. Lateral Halter</span><span class="ex-reps">2x Falha</span></li>
+                </ul>
+                <button class="btn btn-card" onclick="startWorkout('hanayama', 500)">INICIAR PROTOCOLO</button>
+            </div>
+
+            <!-- Card 4 – Oliva: PERNAS COMPLETO -->
+            <div class="workout-card" data-category="lower" data-difficulty="5" id="workout-oliva">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-rank rank-ss">SS</span>
+                    <span class="card-tag">INFERIOR</span>
+                </div>
+                <div class="card-img-container"><img src="assets/char-baki.png" alt="Oliva" class="card-character-img">
+                </div>
+                <h3 class="card-title">TANQUE OLIVA</h3>
+                <p class="card-subtitle">Pernas Completo — Tempo Training</p>
+                <div class="card-stats">
+                    <div class="stat"><span class="stat-value">55</span><span class="stat-label">MIN</span></div>
+                    <div class="stat"><span class="stat-value">7</span><span class="stat-label">EXERC.</span></div>
+                    <div class="stat"><span class="stat-value">650</span><span class="stat-label">XP</span></div>
+                </div>
+                <ul class="card-exercises">
+                    <li><span class="ex-name">Agachamento Smith</span><span class="ex-reps">4x10 (4s neg.)</span></li>
+                    <li><span class="ex-name">Leg Press Sentado</span><span class="ex-reps">4x12 ⬇DropSet</span></li>
+                    <li><span class="ex-name">Extensora</span><span class="ex-reps">4x12 ⏸Rest-Pause</span></li>
+                    <li><span class="ex-name">Flexora</span><span class="ex-reps">4x12 ⏸Rest-Pause</span></li>
+                    <li><span class="ex-name">Avanço Smith</span><span class="ex-reps">3x10 /perna</span></li>
+                    <li><span class="ex-name">Panturrilha Smith</span><span class="ex-reps">5x15 ⬇DropSet</span></li>
+                    <li><span class="ex-name">Stiff Smith</span><span class="ex-reps">3x12 (3s neg.)</span></li>
+                </ul>
+                <button class="btn btn-card" onclick="startWorkout('oliva', 650)">INICIAR PROTOCOLO</button>
+            </div>
+
+            <!-- Card 5 – Retsu: PUSH-PULL SUPERSETS -->
+            <div class="workout-card" data-category="full" data-difficulty="4" id="workout-retsu">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-rank">S</span>
+                    <span class="card-tag">FULL BODY</span>
+                </div>
+                <div class="card-img-container"><img src="assets/char-yujiro.png" alt="Retsu"
+                        class="card-character-img retsu-img"></div>
+                <h3 class="card-title">FLUXO DE RETSU</h3>
+                <p class="card-subtitle">Push-Pull — Supersets Antagonistas</p>
+                <div class="card-stats">
+                    <div class="stat"><span class="stat-value">50</span><span class="stat-label">MIN</span></div>
+                    <div class="stat"><span class="stat-value">8</span><span class="stat-label">EXERC.</span></div>
+                    <div class="stat"><span class="stat-value">550</span><span class="stat-label">XP</span></div>
+                </div>
+                <ul class="card-exercises">
+                    <li><span class="ex-name">🔄 Supino Smith + Remada Smith</span><span class="ex-reps">4x10</span>
+                    </li>
+                    <li><span class="ex-name">🔄 Crossover + Pux. Frontal</span><span class="ex-reps">3x12</span></li>
+                    <li><span class="ex-name">🔄 Tríc. Polia + Rosca Polia</span><span class="ex-reps">3x12</span></li>
+                    <li><span class="ex-name">🔄 Elev. Lateral + Face Pull</span><span class="ex-reps">3x15</span></li>
+                    <li><span class="ex-name">Leg Press Sentado</span><span class="ex-reps">3x12</span></li>
+                    <li><span class="ex-name">Extensora + Flexora</span><span class="ex-reps">3x12</span></li>
+                    <li><span class="ex-name">Abdominal Polia</span><span class="ex-reps">3x15</span></li>
+                    <li><span class="ex-name">Prancha Isométrica</span><span class="ex-reps">3x45s</span></li>
+                </ul>
+                <button class="btn btn-card" onclick="startWorkout('retsu', 550)">INICIAR PROTOCOLO</button>
+            </div>
+
+            <!-- Card 6 – Doppo: FULL BODY GIANT SETS -->
+            <div class="workout-card" data-category="full" data-difficulty="4" id="workout-doppo">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="card-rank">A</span>
+                    <span class="card-tag">FULL BODY</span>
+                </div>
+                <div class="card-img-container"><img src="assets/char-hero.png" alt="Doppo" class="card-character-img">
+                </div>
+                <h3 class="card-title">KARATE DOPPO</h3>
+                <p class="card-subtitle">Full Body — Giant Sets</p>
+                <div class="card-stats">
+                    <div class="stat"><span class="stat-value">45</span><span class="stat-label">MIN</span></div>
+                    <div class="stat"><span class="stat-value">6</span><span class="stat-label">EXERC.</span></div>
+                    <div class="stat"><span class="stat-value">500</span><span class="stat-label">XP</span></div>
+                </div>
+                <ul class="card-exercises">
+                    <li><span class="ex-name">🔥 Supino Smith + Cross + Flex.</span><span class="ex-reps">3
+                            rounds</span></li>
+                    <li><span class="ex-name">🔥 Pux. Frontal + Remada + Pull</span><span class="ex-reps">3
+                            rounds</span></li>
+                    <li><span class="ex-name">🔥 Agach. + Leg Press + Ext.</span><span class="ex-reps">3 rounds</span>
+                    </li>
+                    <li><span class="ex-name">🔥 Elev. Lat. + Face Pull + Enc.</span><span class="ex-reps">3
+                            rounds</span></li>
+                    <li><span class="ex-name">🔥 Rosca + Tríc. + Rosca Martelo</span><span class="ex-reps">3
+                            rounds</span></li>
+                    <li><span class="ex-name">🔥 Abd. Polia + Prancha + Crunch</span><span class="ex-reps">3
+                            rounds</span></li>
+                </ul>
+                <button class="btn btn-card" onclick="startWorkout('doppo', 500)">INICIAR PROTOCOLO</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMER -->
+    <section id="timer">
+        <div class="section-header">
+            <span class="section-tag">// CRONÔMETRO DE COMBATE</span>
+            <h2 class="section-title">TIMER DE <span class="accent">TREINO</span></h2>
+            <p class="section-desc">Configure o tempo de cada round e descanse como um guerreiro.</p>
+        </div>
+
+        <div class="timer-container">
+            <div class="timer-ring">
+                <svg class="timer-svg" viewBox="0 0 260 260">
+                    <circle class="timer-track" cx="130" cy="130" r="120" />
+                    <circle class="timer-progress" cx="130" cy="130" r="120" id="timer-progress" />
+                </svg>
+                <div class="timer-display">
+                    <span id="timer-minutes">05</span>
+                    <span class="timer-colon">:</span>
+                    <span id="timer-seconds">00</span>
+                </div>
+                <div class="timer-label" id="timer-label">PRONTO</div>
+            </div>
+
+            <div class="timer-presets">
+                <button class="preset-btn" onclick="setTimer(60)">1 MIN</button>
+                <button class="preset-btn active" onclick="setTimer(300)">5 MIN</button>
+                <button class="preset-btn" onclick="setTimer(600)">10 MIN</button>
+                <button class="preset-btn" onclick="setTimer(900)">15 MIN</button>
+                <button class="preset-btn" onclick="setTimer(1800)">30 MIN</button>
+            </div>
+
+            <div class="timer-controls">
+                <button class="timer-btn" id="timer-start" onclick="toggleTimer()">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                </button>
+                <button class="timer-btn" id="timer-reset" onclick="resetTimer()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="1,4 1,10 7,10" />
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="progress">
+        <div class="section-header">
+            <span class="section-tag">// EVOLUÇÃO DO GUERREIRO</span>
+            <h2 class="section-title">SEU <span class="accent">PROGRESSO</span></h2>
+            <p class="section-desc">Cada treino concluído fortalece seu espírito e seu corpo.</p>
+        </div>
+
+        <div class="progress-dashboard">
+            <div class="progress-main">
+                <div class="level-display">
+                    <div class="level-badge" id="level-badge">
+                        <span class="level-number" id="level-number">1</span>
+                    </div>
+                    <div class="level-info">
+                        <span class="level-rank" id="level-rank">NOVATO</span>
+                        <div class="xp-bar-container">
+                            <div class="xp-bar" id="xp-bar"></div>
+                        </div>
+                        <span class="xp-text" id="xp-text">0 / 1000 XP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-icon">🔥</div>
+                    <div class="stat-card-value" id="stat-total-workouts">0</div>
+                    <div class="stat-card-label">Treinos Completos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">⚡</div>
+                    <div class="stat-card-value" id="stat-total-xp">0</div>
+                    <div class="stat-card-label">XP Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">📅</div>
+                    <div class="stat-card-value" id="stat-streak">0</div>
+                    <div class="stat-card-label">Dias Seguidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon">🏆</div>
+                    <div class="stat-card-value" id="stat-best-workout">-</div>
+                    <div class="stat-card-label">Melhor Treino</div>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3 class="history-title">HISTÓRICO DE BATALHAS</h3>
+                <div class="history-list" id="history-list">
+                    <div class="history-empty">
+                        <span>Nenhum treino registrado ainda. Comece agora!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MUSCLE MAP -->
+    <section id="muscle-map">
+        <div class="section-header">
+            <span class="section-tag">// MAPA CORPORAL</span>
+            <h2 class="section-title">SELECIONE O <span class="accent">ALVO</span></h2>
+            <p class="section-desc">Clique em um grupo muscular para ver treinos recomendados.</p>
+        </div>
+
+        <div class="muscle-container">
+            <div class="body-map">
+                <div class="body-outline">
+                    <button class="muscle-point" data-muscle="chest" style="top:28%;left:50%" title="Peito">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">PEITO</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="shoulders" style="top:22%;left:35%" title="Ombros">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">OMBROS</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="shoulders-r" style="top:22%;left:65%" title="Ombros">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">OMBROS</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="biceps" style="top:36%;left:28%" title="Bíceps">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">BÍCEPS</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="biceps-r" style="top:36%;left:72%" title="Bíceps">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">BÍCEPS</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="abs" style="top:40%;left:50%" title="Abdômen">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">ABDÔMEN</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="forearms" style="top:46%;left:24%" title="Antebraço">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">ANTEBRAÇO</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="forearms-r" style="top:46%;left:76%" title="Antebraço">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">ANTEBRAÇO</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="quads" style="top:60%;left:42%" title="Quadríceps">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">QUAD.</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="quads-r" style="top:60%;left:58%" title="Quadríceps">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">QUAD.</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="calves" style="top:80%;left:40%" title="Panturrilha">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">PANT.</span>
+                    </button>
+                    <button class="muscle-point" data-muscle="calves-r" style="top:80%;left:60%" title="Panturrilha">
+                        <span class="muscle-dot"></span>
+                        <span class="muscle-label">PANT.</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="muscle-info" id="muscle-info">
+                <div class="muscle-info-placeholder">
+                    <span class="info-icon">👆</span>
+                    <p>Selecione um grupo muscular no mapa ao lado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-icon">👹</span>
+                <span>DEMON TRAINING</span>
+            </div>
+            <p class="footer-quote">"A dor de hoje é a força de amanhã."</p>
+            <div class="footer-bottom">
+                <span>© 2026 Demon Training. Inspirado em Baki Hanma.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WORKOUT MODAL -->
+    <div class="modal-overlay" id="workout-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-icon" id="modal-icon">🥊</div>
+            <h3 class="modal-title" id="modal-title">PROTOCOLO INICIADO</h3>
+            <p class="modal-desc" id="modal-desc">Seu treino foi registrado!</p>
+            <div class="modal-xp">
+                <span class="modal-xp-label">XP GANHO</span>
+                <span class="modal-xp-value" id="modal-xp-value">+500</span>
+            </div>
+            <button class="btn btn-primary" onclick="closeModal()">CONTINUAR</button>
+        </div>
+    </div>
+
+    <!-- LEVEL UP TOAST -->
+    <div class="level-up-toast" id="level-up-toast">
+        <div class="toast-content">
+            <span class="toast-icon">⚔️</span>
+            <div>
+                <span class="toast-title">LEVEL UP!</span>
+                <span class="toast-desc" id="toast-level-desc">Nível 2 — Iniciante</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
