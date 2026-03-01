@@ -1455,6 +1455,170 @@ section {
     transform: translateY(0);
 }
 
+/* === WEEKLY SCHEDULE === */
+#schedule {
+    background:
+        radial-gradient(ellipse at center, rgba(196, 30, 58, 0.03) 0%, transparent 60%),
+        var(--bg-dark);
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+.schedule-day {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--card-radius);
+    padding: 20px 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.schedule-day::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--red-primary), transparent);
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.schedule-day:hover {
+    transform: translateY(-4px);
+    border-color: rgba(196, 30, 58, 0.2);
+    background: var(--bg-card-hover);
+}
+
+.schedule-day:hover::before {
+    opacity: 1;
+}
+
+.schedule-day.today-highlight {
+    border-color: var(--red-primary);
+    background: rgba(196, 30, 58, 0.08);
+    box-shadow: 0 0 25px rgba(196, 30, 58, 0.15), inset 0 0 30px rgba(196, 30, 58, 0.05);
+}
+
+.schedule-day.today-highlight::before {
+    opacity: 1;
+}
+
+.schedule-day.today-highlight::after {
+    content: 'HOJE';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--bg-dark);
+    background: var(--red-primary);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.schedule-day.rest-day {
+    opacity: 0.5;
+    border-style: dashed;
+}
+
+.schedule-day.rest-day:hover {
+    opacity: 0.7;
+}
+
+.day-label {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--white-dim);
+}
+
+.today-highlight .day-label {
+    color: var(--red-primary);
+}
+
+.day-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+    margin: 4px 0;
+}
+
+.day-workout {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    line-height: 1.2;
+}
+
+.day-protocol {
+    font-size: 0.75rem;
+    color: var(--red-primary);
+    font-weight: 600;
+}
+
+.day-technique {
+    font-size: 0.65rem;
+    color: var(--white-dim);
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    margin-top: 4px;
+}
+
+.schedule-today {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--bg-card);
+    border: 1px solid rgba(196, 30, 58, 0.2);
+    border-radius: var(--card-radius);
+    padding: 16px 24px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.today-badge {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--bg-dark);
+    background: var(--red-primary);
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.today-text {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
     :root {
@@ -1735,168 +1899,4 @@ section {
         font-size: 1.1rem;
         letter-spacing: 1px;
     }
-}
-
-/* === WEEKLY SCHEDULE === */
-#schedule {
-    background:
-        radial-gradient(ellipse at center, rgba(196, 30, 58, 0.03) 0%, transparent 60%),
-        var(--bg-dark);
-}
-
-.schedule-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 12px;
-    max-width: 1200px;
-    margin: 0 auto 30px;
-}
-
-.schedule-day {
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: var(--card-radius);
-    padding: 20px 14px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition-smooth);
-    cursor: default;
-    position: relative;
-    overflow: hidden;
-}
-
-.schedule-day::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--red-primary), transparent);
-    opacity: 0;
-    transition: var(--transition-smooth);
-}
-
-.schedule-day:hover {
-    transform: translateY(-4px);
-    border-color: rgba(196, 30, 58, 0.2);
-    background: var(--bg-card-hover);
-}
-
-.schedule-day:hover::before {
-    opacity: 1;
-}
-
-.schedule-day.today-highlight {
-    border-color: var(--red-primary);
-    background: rgba(196, 30, 58, 0.08);
-    box-shadow: 0 0 25px rgba(196, 30, 58, 0.15), inset 0 0 30px rgba(196, 30, 58, 0.05);
-}
-
-.schedule-day.today-highlight::before {
-    opacity: 1;
-}
-
-.schedule-day.today-highlight::after {
-    content: 'HOJE';
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    font-family: var(--font-heading);
-    font-size: 0.55rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--bg-dark);
-    background: var(--red-primary);
-    padding: 2px 6px;
-    border-radius: 3px;
-}
-
-.schedule-day.rest-day {
-    opacity: 0.5;
-    border-style: dashed;
-}
-
-.schedule-day.rest-day:hover {
-    opacity: 0.7;
-}
-
-.day-label {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--white-dim);
-}
-
-.today-highlight .day-label {
-    color: var(--red-primary);
-}
-
-.day-icon {
-    font-size: 1.8rem;
-    line-height: 1;
-    margin: 4px 0;
-}
-
-.day-workout {
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--white);
-    line-height: 1.2;
-}
-
-.day-protocol {
-    font-size: 0.75rem;
-    color: var(--red-primary);
-    font-weight: 600;
-}
-
-.day-technique {
-    font-size: 0.65rem;
-    color: var(--white-dim);
-    font-weight: 400;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 4px;
-    margin-top: 4px;
-}
-
-.schedule-today {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: var(--bg-card);
-    border: 1px solid rgba(196, 30, 58, 0.2);
-    border-radius: var(--card-radius);
-    padding: 16px 24px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.today-badge {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--bg-dark);
-    background: var(--red-primary);
-    padding: 4px 12px;
-    border-radius: 4px;
-}
-
-.today-text {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--white);
-    font-weight: 600;
-    letter-spacing: 1px;
 }
