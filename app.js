@@ -1,5 +1,5 @@
-/* ========================================
-   DEMON TRAINING — App Logic
+﻿/* ========================================
+   DEMON TRAINING â€” App Logic
    ======================================== */
 
 // ===== PARTICLE SYSTEM =====
@@ -87,7 +87,7 @@ class ParticleSystem {
 // ===== DATA =====
 const WORKOUT_NAMES = {
     baki: 'PROTOCOLO BAKI',
-    yujiro: 'FÚRIA DO OGRO',
+    yujiro: 'FÃšRIA DO OGRO',
     hanayama: 'GRIP DE HANAYAMA',
     oliva: 'TANQUE OLIVA',
     retsu: 'FLUXO DE RETSU',
@@ -95,12 +95,12 @@ const WORKOUT_NAMES = {
 };
 
 const WORKOUT_ICONS = {
-    baki: '🏋️',
-    yujiro: '💪',
-    hanayama: '🔥',
-    oliva: '🦵',
-    retsu: '🔄',
-    doppo: '⚡'
+    baki: 'ðŸ‹ï¸',
+    yujiro: 'ðŸ’ª',
+    hanayama: 'ðŸ”¥',
+    oliva: 'ðŸ¦µ',
+    retsu: 'ðŸ”„',
+    doppo: 'âš¡'
 };
 
 const RANKS = [
@@ -108,10 +108,10 @@ const RANKS = [
     { level: 2, name: 'INICIANTE', xpNeeded: 2500 },
     { level: 3, name: 'LUTADOR', xpNeeded: 5000 },
     { level: 4, name: 'GUERREIRO', xpNeeded: 8000 },
-    { level: 5, name: 'CAMPEÃO', xpNeeded: 12000 },
+    { level: 5, name: 'CAMPEÃƒO', xpNeeded: 12000 },
     { level: 6, name: 'MESTRE', xpNeeded: 18000 },
     { level: 7, name: 'LENDA', xpNeeded: 25000 },
-    { level: 8, name: 'DEMÔNIO', xpNeeded: 35000 },
+    { level: 8, name: 'DEMÃ”NIO', xpNeeded: 35000 },
     { level: 9, name: 'OGRO', xpNeeded: 50000 },
     { level: 10, name: 'HANMA', xpNeeded: 999999 },
 ];
@@ -119,29 +119,29 @@ const RANKS = [
 const MUSCLE_DATA = {
     chest: {
         name: 'PEITO',
-        desc: 'Peito destruidor usando Smith e polias para máxima hipertrofia.',
+        desc: 'Peito destruidor usando Smith e polias para mÃ¡xima hipertrofia.',
         exercises: [
             { name: 'Supino Reto Smith', sets: '4x10' },
             { name: 'Supino Inclinado Smith', sets: '4x10' },
             { name: 'Crucifixo Polia Fixa', sets: '3x12' },
             { name: 'Crossover Cabo Baixo', sets: '3x15' },
-            { name: 'Flexão Fechada (Falha)', sets: '2x Falha' }
+            { name: 'FlexÃ£o Fechada (Falha)', sets: '2x Falha' }
         ]
     },
     shoulders: {
         name: 'OMBROS',
-        desc: 'Deltóides 3D com militar no Smith e cabos para isolação.',
+        desc: 'DeltÃ³ides 3D com militar no Smith e cabos para isolaÃ§Ã£o.',
         exercises: [
             { name: 'Desenv. Militar Smith', sets: '4x10' },
-            { name: 'Elevação Lateral Cabo', sets: '4x15' },
-            { name: 'Elevação Frontal Halter', sets: '3x12' },
+            { name: 'ElevaÃ§Ã£o Lateral Cabo', sets: '4x15' },
+            { name: 'ElevaÃ§Ã£o Frontal Halter', sets: '3x12' },
             { name: 'Face Pull Polia Alta', sets: '4x15' },
             { name: 'Crucifixo Inverso Cabo', sets: '3x15' }
         ]
     },
     biceps: {
-        name: 'BÍCEPS',
-        desc: 'Braços de Oliva com tensão constante nas polias.',
+        name: 'BÃCEPS',
+        desc: 'BraÃ§os de Oliva com tensÃ£o constante nas polias.',
         exercises: [
             { name: 'Rosca Direta Polia', sets: '4x12' },
             { name: 'Rosca Martelo Halter', sets: '3x12' },
@@ -151,43 +151,43 @@ const MUSCLE_DATA = {
         ]
     },
     abs: {
-        name: 'ABDÔMEN',
-        desc: 'Core de aço com abdominal na polia e isometria.',
+        name: 'ABDÃ”MEN',
+        desc: 'Core de aÃ§o com abdominal na polia e isometria.',
         exercises: [
             { name: 'Abdominal Polia Alta', sets: '4x15' },
-            { name: 'Prancha Isométrica', sets: '3x60s' },
+            { name: 'Prancha IsomÃ©trica', sets: '3x60s' },
             { name: 'Wood Chop Polia', sets: '3x12/lado' },
             { name: 'Crunch no Banco Inclinado', sets: '4x15' },
             { name: 'Pallof Press Polia', sets: '3x12/lado' }
         ]
     },
     forearms: {
-        name: 'ANTEBRAÇO',
+        name: 'ANTEBRAÃ‡O',
         desc: 'Grip destruidor como Hanayama usando cabos e halteres.',
         exercises: [
             { name: 'Rosca Punho Halter', sets: '4x20' },
             { name: 'Rosca Inversa Polia', sets: '3x15' },
             { name: 'Dead Hang na Smith', sets: '4x45s' },
             { name: 'Farmer Walk (Halteres)', sets: '3x30m' },
-            { name: 'Extensão de Punho', sets: '3x15' }
+            { name: 'ExtensÃ£o de Punho', sets: '3x15' }
         ]
     },
     quads: {
-        name: 'QUADRÍCEPS',
-        desc: 'Quadríceps massivos com Smith, leg press e extensora.',
+        name: 'QUADRÃCEPS',
+        desc: 'QuadrÃ­ceps massivos com Smith, leg press e extensora.',
         exercises: [
             { name: 'Agachamento Smith', sets: '4x10' },
             { name: 'Leg Press Sentado', sets: '4x12' },
             { name: 'Extensora', sets: '4x12' },
-            { name: 'Avanço Smith', sets: '3x10/perna' },
+            { name: 'AvanÃ§o Smith', sets: '3x10/perna' },
             { name: 'Hack Squat Smith', sets: '3x12' }
         ]
     },
     calves: {
         name: 'PANTURRILHA',
-        desc: 'Panturrilhas definidas com variações no Smith.',
+        desc: 'Panturrilhas definidas com variaÃ§Ãµes no Smith.',
         exercises: [
-            { name: 'Panturrilha Smith (em pé)', sets: '5x15' },
+            { name: 'Panturrilha Smith (em pÃ©)', sets: '5x15' },
             { name: 'Panturrilha Sentado Halter', sets: '4x20' },
             { name: 'Panturrilha Unilateral', sets: '3x15/perna' },
             { name: 'Tibial Anterior', sets: '3x20' },
@@ -418,7 +418,7 @@ function updateTimerProgress() {
 function startWorkout(id, xp) {
     // Show modal
     const modal = document.getElementById('workout-modal');
-    document.getElementById('modal-icon').textContent = WORKOUT_ICONS[id] || '🥊';
+    document.getElementById('modal-icon').textContent = WORKOUT_ICONS[id] || 'ðŸ¥Š';
     document.getElementById('modal-title').textContent = WORKOUT_NAMES[id] || 'TREINO COMPLETO';
     document.getElementById('modal-desc').textContent = 'Protocolo registrado com sucesso!';
     document.getElementById('modal-xp-value').textContent = '+' + xp;
@@ -559,7 +559,7 @@ function updateProgressUI(data) {
             <div class="history-item">
                 <div>
                     <span class="history-item-name">${item.name}</span>
-                    <span class="history-item-date">${item.date} às ${item.time}</span>
+                    <span class="history-item-date">${item.date} Ã s ${item.time}</span>
                 </div>
                 <span class="history-item-xp">+${item.xp} XP</span>
             </div>
@@ -570,7 +570,7 @@ function updateProgressUI(data) {
 function showLevelUp(level) {
     const rank = RANKS.find(r => r.level === level);
     const toast = document.getElementById('level-up-toast');
-    document.getElementById('toast-level-desc').textContent = `Nível ${level} — ${rank ? rank.name : '???'}`;
+    document.getElementById('toast-level-desc').textContent = `NÃ­vel ${level} â€” ${rank ? rank.name : '???'}`;
     toast.classList.add('show');
 
     setTimeout(() => {
@@ -578,61 +578,114 @@ function showLevelUp(level) {
     }, 4000);
 }
 
-// ===== MUSCLE MAP =====
+// ===== MUSCLE MAP (MULTI-SELECT) =====
+let selectedMuscles = [];
+
 function initMuscleMap() {
     const points = document.querySelectorAll('.muscle-point');
     const infoPanel = document.getElementById('muscle-info');
 
     points.forEach(point => {
         point.addEventListener('click', () => {
-            // Normalize muscle key (remove -r suffix for right-side duplicates)
             let muscle = point.dataset.muscle.replace('-r', '');
             const data = MUSCLE_DATA[muscle];
-
             if (!data) return;
 
-            // Active state
+            // Toggle muscle selection
+            const idx = selectedMuscles.indexOf(muscle);
+            if (idx > -1) {
+                // Remove if already selected
+                selectedMuscles.splice(idx, 1);
+            } else {
+                // Add if under limit (max 2)
+                if (selectedMuscles.length >= 2) {
+                    selectedMuscles.shift(); // Remove oldest
+                }
+                selectedMuscles.push(muscle);
+            }
+
+            // Update visual state
             points.forEach(p => p.classList.remove('active'));
-            // Activate both sides
-            document.querySelectorAll(`[data-muscle="${muscle}"], [data-muscle="${muscle}-r"]`).forEach(p => {
-                p.classList.add('active');
+            selectedMuscles.forEach(m => {
+                document.querySelectorAll(`[data-muscle="${m}"], [data-muscle="${m}-r"]`).forEach(p => {
+                    p.classList.add('active');
+                });
             });
 
-            // Show info
-            infoPanel.innerHTML = `
-                <div class="muscle-info-content">
-                    <h3>${data.name}</h3>
-                    <p>${data.desc}</p>
+            // Show combined info
+            if (selectedMuscles.length === 0) {
+                infoPanel.innerHTML = `
+                    <div class="muscle-info-placeholder">
+                        <span class="info-icon">ðŸ‘†</span>
+                        <p>Selecione um grupo muscular no mapa ao lado</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '<div class="muscle-info-content">';
+
+            selectedMuscles.forEach((m, i) => {
+                const d = MUSCLE_DATA[m];
+                if (!d) return;
+                if (i > 0) html += '<hr style="border-color: rgba(196,30,58,0.2); margin: 12px 0;">';
+                html += `
+                    <h3>${d.name}</h3>
+                    <p>${d.desc}</p>
                     <ul class="muscle-exercises">
-                        ${data.exercises.map(ex => `
+                        ${d.exercises.map(ex => `
                             <li>
                                 <span class="muscle-ex-name">${ex.name}</span>
                                 <span class="muscle-ex-sets">${ex.sets}</span>
                             </li>
                         `).join('')}
                     </ul>
-                </div>
-            `;
+                `;
+            });
+
+            html += `
+                <button class="btn btn-card" onclick="clearMuscleSelection()" style="margin-top: 16px; font-size: 0.75rem;">
+                    LIMPAR SELEÃ‡ÃƒO
+                </button>
+            </div>`;
+
+            infoPanel.innerHTML = html;
         });
     });
 }
 
+function clearMuscleSelection() {
+    selectedMuscles = [];
+    document.querySelectorAll('.muscle-point').forEach(p => p.classList.remove('active'));
+    document.getElementById('muscle-info').innerHTML = `
+        <div class="muscle-info-placeholder">
+            <span class="info-icon">ðŸ‘†</span>
+            <p>Selecione atÃ© 2 grupos musculares no mapa ao lado</p>
+        </div>
+    `;
+}
+
 // ===== WEEKLY SCHEDULE =====
+// Maps each day (0=Sun) to the workout card ID
+const DAY_TO_WORKOUT = {
+    0: null, 1: 'baki', 2: 'yujiro', 3: 'doppo',
+    4: 'hanayama', 5: 'oliva', 6: 'retsu'
+};
+
 function initSchedule() {
-    const today = new Date().getDay(); // 0=Sun, 1=Mon, ...
+    const today = new Date().getDay();
     const days = document.querySelectorAll('.schedule-day');
 
     const SCHEDULE = {
-        0: { name: 'DESCANSO TOTAL', protocol: 'Recuperação — Sono & Nutrição', rest: true },
-        1: { name: 'PEITO & TRÍCEPS', protocol: 'Protocolo Baki — Drop Sets', rest: false },
-        2: { name: 'COSTAS & BÍCEPS', protocol: 'Fúria do Ogro — Rest-Pause', rest: false },
-        3: { name: 'DESCANSO ATIVO', protocol: 'Alongamento & Cardio leve', rest: true },
-        4: { name: 'OMBROS & TRAPÉZIO', protocol: 'Grip de Hanayama — Myo-Reps', rest: false },
-        5: { name: 'PERNAS COMPLETO', protocol: 'Tanque Oliva — Tempo Training', rest: false },
-        6: { name: 'PUSH-PULL', protocol: 'Fluxo de Retsu — Supersets', rest: false }
+        0: { name: 'DESCANSO TOTAL', protocol: 'RecuperaÃ§Ã£o â€” Sono & NutriÃ§Ã£o', rest: true },
+        1: { name: 'PEITO & TRÃCEPS', protocol: 'Protocolo Baki â€” Drop Sets', rest: false },
+        2: { name: 'COSTAS & BÃCEPS', protocol: 'FÃºria do Ogro â€” Rest-Pause', rest: false },
+        3: { name: 'FULL BODY', protocol: 'Karate Doppo â€” Giant Sets', rest: false },
+        4: { name: 'OMBROS & TRAPÃ‰ZIO', protocol: 'Grip de Hanayama â€” Myo-Reps', rest: false },
+        5: { name: 'PERNAS COMPLETO', protocol: 'Tanque Oliva â€” Tempo Training', rest: false },
+        6: { name: 'PUSH-PULL', protocol: 'Fluxo de Retsu â€” Supersets', rest: false }
     };
 
-    // Highlight today's card
     days.forEach(day => {
         const dayNum = parseInt(day.dataset.day);
         if (dayNum === today) {
@@ -640,14 +693,34 @@ function initSchedule() {
         }
     });
 
-    // Update today banner
     const todayText = document.getElementById('today-text');
     if (todayText && SCHEDULE[today]) {
         const info = SCHEDULE[today];
-        if (info.rest) {
-            todayText.textContent = `${info.name} — ${info.protocol}`;
-        } else {
-            todayText.textContent = `${info.name} → ${info.protocol}`;
-        }
+        todayText.textContent = info.rest
+            ? `${info.name} â€” ${info.protocol}`
+            : `${info.name} â†’ ${info.protocol}`;
     }
 }
+
+// ===== SCROLL TO TODAY'S WORKOUT =====
+function scrollToTodayWorkout(event) {
+    if (event) event.preventDefault();
+    const today = new Date().getDay();
+    const workoutId = DAY_TO_WORKOUT[today];
+
+    if (workoutId) {
+        const cards = document.querySelectorAll('.workout-card');
+        for (const card of cards) {
+            const btn = card.querySelector('.btn-card');
+            if (btn && btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'" + workoutId + "'")) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.style.transition = 'box-shadow 0.3s ease';
+                card.style.boxShadow = '0 0 30px rgba(196, 30, 58, 0.5), 0 0 60px rgba(196, 30, 58, 0.2)';
+                setTimeout(() => { card.style.boxShadow = ''; }, 2000);
+                return;
+            }
+        }
+    }
+    document.getElementById('schedule').scrollIntoView({ behavior: 'smooth' });
+}
+
